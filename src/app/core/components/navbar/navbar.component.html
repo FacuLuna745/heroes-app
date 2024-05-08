@@ -1,0 +1,6 @@
+<nav class="view-container">
+  <p>Heroes-App</p>
+  <div *ngFor="let item of navbarLinks">
+    <a mat-button color="primary" [routerLink]="item.link">{{ item.title }}</a>
+  </div>
+</nav>
