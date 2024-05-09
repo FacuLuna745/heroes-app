@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: white;
+  padding: 0 16px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.icon-menu {
+  order: 1;
+}
