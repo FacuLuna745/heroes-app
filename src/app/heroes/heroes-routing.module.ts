@@ -15,19 +15,31 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'new',
+        path: 'new-hero',
         loadChildren: () =>
           import('./pages/new-heroes/new-heroes.module').then(
             (m) => m.NewHeroesModule
           ),
       },
       {
-        path: 'update',
+        path: 'edit/:id',
         loadChildren: () =>
           import('./pages/new-heroes/new-heroes.module').then(
             (m) => m.NewHeroesModule
           ),
       },
+      {
+        path: ':id',
+        loadChildren: () =>
+          import('./pages/hero-page/hero-page.module').then(
+            (m) => m.HeroPageModule
+          ),
+      },
+      {
+        path: '**',
+        redirectTo: 'list'
+      }
+
     ],
   },
 ];

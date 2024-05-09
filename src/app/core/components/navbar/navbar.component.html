@@ -1,6 +1,33 @@
-<nav class="view-container">
-  <p>Heroes-App</p>
-  <div *ngFor="let item of navbarLinks">
-    <a mat-button color="primary" [routerLink]="item.link">{{ item.title }}</a>
+<mat-toolbar color="primary">
+  <div class="view-container navbar">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      *ngIf="isMobile"
+      class="icon-menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Hero App</span>
+    <span class="spacer"></span>
+    <div *ngFor="let item of navbarLinks">
+      <a
+        mat-button
+        [routerLink]="item.link"
+        class="menu-link"
+        *ngIf="!isMobile"
+        >{{ item.title }}</a
+      >
+    </div>
+
+    <mat-menu #menu="matMenu">
+      <button
+        *ngFor="let item of navbarLinks"
+        mat-menu-item
+        [routerLink]="item.link"
+      >
+        {{ item.title }}
+      </button>
+    </mat-menu>
   </div>
-</nav>
+</mat-toolbar>

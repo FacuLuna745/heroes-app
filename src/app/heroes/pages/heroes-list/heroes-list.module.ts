@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroesListComponent } from './heroes-list.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HeroCardModule } from '../../components/hero-card/hero-card.module';
 
 const routes: Routes = [
   {
@@ -19,6 +20,6 @@ export class HeroesListRoutingModule {}
 @NgModule({
   declarations: [HeroesListComponent],
   exports: [HeroesListComponent],
-  imports: [CommonModule, HeroesListRoutingModule],
+  imports: [CommonModule, HeroesListRoutingModule,HeroCardModule],
 })
 export class HeroesListModule {}
