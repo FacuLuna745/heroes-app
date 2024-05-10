@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HeroesListComponent } from './heroes-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HeroCardModule } from '../../components/hero-card/hero-card.module';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -20,6 +23,14 @@ export class HeroesListRoutingModule {}
 @NgModule({
   declarations: [HeroesListComponent],
   exports: [HeroesListComponent],
-  imports: [CommonModule, HeroesListRoutingModule,HeroCardModule],
+  imports: [
+    CommonModule,
+    HeroesListRoutingModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    HeroCardModule,
+    MatIconModule,
+    MatInputModule,
+  ],
 })
 export class HeroesListModule {}

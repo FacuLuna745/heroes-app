@@ -1,4 +1,24 @@
 <div class="grid bm-8 view-container">
+  <div
+    class="container-system-search"
+    fxFlexLayout="row"
+    fxLayoutAlign="center center"
+  >
+    <mat-icon>search</mat-icon>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        #systemSearchInput
+        class="system-search"
+        type="text"
+        placeholder="Indica un método de intercambio"
+        [formControl]="searchHero"
+      />
+    </mat-form-field>
+    <mat-icon *ngIf="searchHero.value !== ''" class="restart-value-search"
+      >clear</mat-icon
+    >
+  </div>
   <div *ngFor="let hero of heroes" class="col-12 sm:col-4 md:col-3">
     <app-hero-card [hero]="hero"></app-hero-card>
   </div>

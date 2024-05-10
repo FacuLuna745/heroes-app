@@ -1,14 +1,10 @@
-<!--
-
-<h1>
-  {{ currentHero.id ? 'Editar' : 'Agregar' }}
-  héroe
-  <small *ngIf="currentHero.id">{{ currentHero.superhero }}</small>
+<h1 *ngIf="currentHero.id" class="view-container">
+  {{ currentHero.superhero }}
+  <mat-divider class="mb-2"></mat-divider>
 </h1>
 
-<mat-divider class="mb-2"></mat-divider> -->
 
-<div class="grid">
+<div class="grid view-container">
   <div class="col-12 sm:col-6">
     <mat-card>
       <mat-card-content>
@@ -62,7 +58,9 @@
         </form>
 
         <div class="flex justify-content-between">
-          <button mat-flat-button color="warn">Borrar</button>
+          <button mat-flat-button color="warn" (click)="onDeleteHero()">
+            Borrar
+          </button>
           <span></span>
 
           <button mat-flat-button color="primary" (click)="onSubmit()">
@@ -74,7 +72,7 @@
     </mat-card>
   </div>
 
-  <!-- <div class="col-12 sm:col-6">
+  <div class="col-12 sm:col-6">
     <mat-card>
       <img
         [src]="currentHero | heroImage"
@@ -82,5 +80,5 @@
         mat-card-image
       />
     </mat-card>
-  </div> -->
+  </div>
 </div>
