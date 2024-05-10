@@ -19,6 +19,13 @@ export class HeroesService {
       .get<Hero>(`${this.baseUrl}/heroes/${id}`)
       .pipe(catchError((error) => of(undefined)));
   }
+
+  public getHeroSearch(query: string): Observable<Array<Hero>> {
+    return this.httpClient.get<Array<Hero>>(
+      `${this.baseUrl}/heroes?q=${query}&_limit=6`
+    );
+  }
+
   public addHero(hero: Hero): Observable<Hero> {
     return this.httpClient.post<Hero>(`${this.baseUrl}/heroes`, hero);
   }
