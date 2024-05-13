@@ -1,9 +1,16 @@
-<h1 mat-dialog-title>¿Está seguro?</h1>
-<div mat-dialog-content>
-  <p>Este proceso no es reversible, está a punto de elimiar a {{ data.superhero }}</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <span class="spacer"></span>
-  <button mat-button color="primary" (click)="onConfirm()" cdkFocusInitial>Ok</button>
-</div>
+<mat-card>
+  <h2 mat-dialog-title>¿Está seguro?</h2>
+  <div mat-dialog-content>
+    <p>
+      Este proceso no es reversible, está a punto de elimiar a
+      {{ data.superhero }}
+    </p>
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">Cerrar</button>
+    <span class="spacer"></span>
+    <button mat-button color="warn" (click)="onConfirm()" cdkFocusInitial>
+      Borrar
+    </button>
+  </mat-dialog-actions>
+</mat-card>

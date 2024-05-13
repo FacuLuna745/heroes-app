@@ -15,7 +15,6 @@ import { PipesModule } from '../../pipes/pipes.module';
   imports: [
     CommonModule,
     PipesModule,
-    MatDividerModule,
     MatIconModule,
     MatButtonModule,
     RouterModule,

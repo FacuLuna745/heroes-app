@@ -8,6 +8,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 
 import { PipesModule } from '../../pipes/pipes.module';
+import { CoreModule } from 'src/app/core/core.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
   {
@@ -27,9 +30,12 @@ export class HeroPageRoutingModule {}
   exports: [HeroPageComponent],
   imports: [
     CommonModule,
+    CoreModule,
+    MatButtonModule,
     MatListModule,
     PipesModule,
     MatGridListModule,
+    MatIconModule,
     MatProgressSpinnerModule,
     MatCardModule,
     HeroPageRoutingModule,

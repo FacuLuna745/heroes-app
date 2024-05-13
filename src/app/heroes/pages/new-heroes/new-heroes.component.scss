@@ -1,0 +1,29 @@
+.card-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card-content {
+  padding: 24px;
+  box-sizing: content-box;
+}
+
+h2 {
+  padding-bottom: 24px;
+  font-size: 2rem;
+}
+
+.container-name-alterego {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  padding: 0 8px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 720px) {
+  .card-hero {
+    flex-direction: column;
+  }
+}

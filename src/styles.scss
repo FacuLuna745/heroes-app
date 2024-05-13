@@ -7,17 +7,35 @@ body {
 
 body {
   margin: 0;
+  background-color: #c7c7c7;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .view-container {
   max-width: 1200px;
   width: 100%;
-  margin: auto;
+  margin: 48px auto;
   box-sizing: border-box;
   padding: 0 24px;
 
   @media (max-width: 600px) {
-      padding: 0 16px;
+    padding: 0 16px;
+  }
+}
+
+.container-img {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+
+  img {
+    max-width: 330px !important;
+    border-radius: 30px;
+    padding: 24px;
+    box-sizing: content-box;
+  }
+
+  @media (max-width: 720px) {
+    order: 1;
   }
 }

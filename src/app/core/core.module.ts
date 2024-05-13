@@ -7,14 +7,17 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
-  declarations: [NavbarComponent],
-  exports: [NavbarComponent],
+  declarations: [NavbarComponent, LoaderComponent],
+  exports: [NavbarComponent, LoaderComponent],
   imports: [
     CommonModule,
     MatIconModule,
     MatToolbarModule,
+    MatProgressSpinnerModule,
     MatMenuModule,
     MatButtonModule,
     RouterModule,
