@@ -7,4 +7,4 @@ Prueba tecnica para frontend
  2. Ejecutar ```npm install```.
  3. Levantar backend ```npm run backend-server```.
  4. En otra terminal ejecutar ```npm start``` o también ```ng serve -o```.
-
+ 5. Para ejecutar los test ```npm run test```.
