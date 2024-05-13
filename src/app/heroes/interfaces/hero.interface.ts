@@ -6,6 +6,7 @@ export interface Hero {
   first_appearance: string;
   alt_img?: string;
   characters: string;
+  description: string;
 }
 
 export enum Publisher {

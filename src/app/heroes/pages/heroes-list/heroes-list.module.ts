@@ -6,6 +6,8 @@ import { HeroCardModule } from '../../components/hero-card/hero-card.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { CoreModule } from 'src/app/core/core.module';
 
 const routes: Routes = [
   {
@@ -26,7 +28,9 @@ export class HeroesListRoutingModule {}
   imports: [
     CommonModule,
     HeroesListRoutingModule,
+    CoreModule,
     ReactiveFormsModule,
+    MatCardModule,
     MatInputModule,
     HeroCardModule,
     MatIconModule,

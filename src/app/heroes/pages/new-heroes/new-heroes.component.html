@@ -1,28 +1,43 @@
-<h1 *ngIf="currentHero.id" class="view-container">
-  {{ currentHero.superhero }}
-  <mat-divider class="mb-2"></mat-divider>
-</h1>
-
-
-<div class="grid view-container">
-  <div class="col-12 sm:col-6">
-    <mat-card>
+<div class="view-container">
+  <mat-card class="col-12">
+    <div class="card-hero">
+      <div class="container-img">
+        <img
+          [src]="currentHero | heroImage"
+          alt="imagen del héroe"
+          mat-card-image
+          style="max-width: 100%; height: auto"
+        />
+      </div>
       <mat-card-content>
+        <h2>{{ currentHero.id !== '' ? 'Editar': 'Crear'}} héroe</h2>
         <form
           class="grid"
           id="heroForm"
           [formGroup]="heroForm"
           (ngSubmit)="onSubmit()"
         >
-          <mat-form-field class="col-12 sm:col-6" appearance="outline">
-            <mat-label>Super héroe</mat-label>
-            <input matInput type="text" required formControlName="superhero" />
-          </mat-form-field>
+          <div class="container-name-alterego">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input
+                matInput
+                type="text"
+                required
+                formControlName="superhero"
+              />
+            </mat-form-field>
 
-          <mat-form-field class="col-12 sm:col-6" appearance="outline">
-            <mat-label>Alter ego</mat-label>
-            <input matInput type="text" required formControlName="alter_ego" />
-          </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Alter ego</mat-label>
+              <input
+                matInput
+                type="text"
+                required
+                formControlName="alter_ego"
+              />
+            </mat-form-field>
+          </div>
 
           <mat-form-field class="col-12" appearance="outline">
             <mat-label>Primera aparición</mat-label>
@@ -39,46 +54,41 @@
             <input matInput type="text" required formControlName="characters" />
           </mat-form-field>
 
+
           <mat-form-field class="col-12" appearance="outline">
             <mat-label>Creador</mat-label>
             <mat-select formControlName="publisher" required>
               <mat-option
-                *ngFor="let publisher of publishers"
-                [value]="publisher.id"
+              *ngFor="let publisher of publishers"
+              [value]="publisher.id"
               >
-                {{ publisher.desc }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+              {{ publisher.desc }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="col-12" appearance="outline">
+          <mat-label>Imagen</mat-label>
+          <input matInput placeholder="https://example.jpg" type="text" formControlName="alt_img" />
+        </mat-form-field>
 
           <mat-form-field class="col-12" appearance="outline">
-            <mat-label>Alternative Image</mat-label>
-            <input matInput type="text" formControlName="alt_img" />
+            <mat-label>Historia</mat-label>
+            <textarea matInput formControlName="description"></textarea>
           </mat-form-field>
         </form>
 
         <div class="flex justify-content-between">
-          <button mat-flat-button color="warn" (click)="onDeleteHero()">
+          <button *ngIf="currentHero.id !== ''" mat-flat-button color="warn" (click)="onDeleteHero()">
+            <mat-icon>delete</mat-icon>
             Borrar
           </button>
           <span></span>
-
           <button mat-flat-button color="primary" (click)="onSubmit()">
-            <mat-icon>save</mat-icon>
-            Guardar
+            <mat-icon>save</mat-icon> Guardar
           </button>
         </div>
       </mat-card-content>
-    </mat-card>
-  </div>
-
-  <div class="col-12 sm:col-6">
-    <mat-card>
-      <img
-        [src]="currentHero | heroImage"
-        alt="imagen del héroe"
-        mat-card-image
-      />
-    </mat-card>
-  </div>
+    </div>
+  </mat-card>
 </div>

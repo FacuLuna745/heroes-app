@@ -16,6 +16,7 @@ import { NewHeroesComponent } from './new-heroes.component';
 import { ConfirmDialogModule } from '../../components/confirm-dialog/confirm-dialog.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import { CoreModule } from 'src/app/core/core.module';
 
 const routes: Routes = [
   {
@@ -40,10 +41,10 @@ export class NewHeroesRoutingModule {}
     PipesModule,
     MatOptionModule,
     MatSelectModule,
-    MatDividerModule,
     ConfirmDialogModule,
     MatDialogModule,
     MatInputModule,
+    CoreModule,
     MatButtonModule,
     MatIconModule,
     MatCardModule,

@@ -8,7 +8,7 @@
     >
       <mat-icon>menu</mat-icon>
     </button>
-    <span>Hero App</span>
+    <span [routerLink]="['/heroes/list']" >Hero App</span>
     <span class="spacer"></span>
     <div *ngFor="let item of navbarLinks">
       <a

@@ -1,15 +1,12 @@
 import { HeroesService } from './../../services/heroes.service';
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-} from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
-import { filter, switchMap } from 'rxjs';
+import { debounceTime, filter, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-new-heroes',
@@ -25,6 +22,7 @@ export class NewHeroesComponent {
     first_appearance: new FormControl(''),
     characters: new FormControl(''),
     alt_img: new FormControl(''),
+    description: new FormControl(''),
   });
 
   public publishers = [
@@ -72,14 +70,14 @@ export class NewHeroesComponent {
     }
 
     this.heroesService.addHero(this.currentHero).subscribe((hero) => {
-      this.router.navigate(['/heroes/edit', hero.id]);
+      this.router.navigate(['/heroes/list']);
       this.showSnackbar(`${hero.superhero} created!`);
     });
   }
 
   public onDeleteHero() {
     if (!this.currentHero.id) throw Error('Hero id is required');
-    console.log('entre')
+    console.log('entre');
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: this.heroForm.value,
     });
@@ -94,7 +92,6 @@ export class NewHeroesComponent {
       .subscribe(() => {
         this.router.navigate(['/heroes']);
       });
-
   }
 
   public showSnackbar(message: string): void {
